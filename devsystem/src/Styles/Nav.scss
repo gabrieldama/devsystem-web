@@ -14,4 +14,13 @@ nav {
             color: $secondary-color;
         }
     }
+
+    .btn-sair {
+            padding: 8px;
+            background-color: #dc3545;
+            color: $white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
 }

@@ -15,6 +15,10 @@ export default function Router() {
                 <Route path="/" element={logado === "true" ? <HomeLogado/> : <Login/>} />
                 <Route path="/sobre" element={<Sobre/>}/>
                 <Route path="/home-logado" element={logado === "true" ? <HomeLogado/> : <Navigate to="/" />} />
+
+
+                {/* Redireciona rotas inexistentes para a página inicial */}
+                <Route path="*" element={<Navigate to="/" replace/>} />
             </Routes>
         </BrowserRouter>
     )
