@@ -16,6 +16,7 @@ export default function Router() {
                 <Route path="/sobre" element={<Sobre/>}/>
                 <Route path="/home-logado" element={logado === "true" ? <HomeLogado/> : <Navigate to="/" />} />
 
+                <Route path="/pessoas" element={sessionStorage.getItem('logado') === "true" ? <Pessoas/> : <Navigate to="/" replace/>} />
 
                 {/* Redireciona rotas inexistentes para a página inicial */}
                 <Route path="*" element={<Navigate to="/" replace/>} />
