@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Sobre from '../Pages/Sobre'
 import Login from '../Pages/Login'
+import Pessoas from '../Pages/Pessoas'
 import Navbar from '../Components/Navbar'
 import HomeLogado from '../Pages/HomeLogado'
 

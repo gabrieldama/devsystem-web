@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react";
 import "../Styles/Abstracts/Pessoas.scss";
+import axios from "axios";
 
 export default function Pessoas() {
+
+const [pessoas, setPessoas] = useState([]);
+
+useEffect(() => {
+    axios.get("http://localhost:3000/pessoas")
+        .then(res => {
+            setPessoas(res.data);
+        })
+}, [])
+
+    useEffect(() => {
+        console.log(pessoas);
+    }, [pessoas])
   return (
-    <main className="container">
+    <main className="pessoas">
         <h1>Lista de Pessoas</h1>
 
         <table>
@@ -11,14 +26,18 @@ export default function Pessoas() {
                     <th>Id</th>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>Telefone</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>444</td>
-                    <td>John Doe</td>
-                    <td>john.doe@example.com</td>
-                </tr>
+                {pessoas.map(({id, nome, email, telefone}) => (
+                    <tr key={id}>
+                        <td>{id}</td>
+                        <td>{nome}</td>
+                        <td>{email}</td>
+                        <td>{telefone}</td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     </main>
